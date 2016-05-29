@@ -6,6 +6,10 @@
         var WORK_TIME = 10; ///seconds
         var BREAK_TIME = 5;
         var LONG_BREAK_TIME = 7;
+        var mySound = new buzz.sound("assets/sounds/ding.mp3",
+                      {
+                          preload: true
+                      });
         
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////PRIVATE/////////////////////////////////////////////
@@ -32,6 +36,7 @@
             
             //If the timer has run out
             if(self.time <= 0){
+                mySound.play();
                 if(!self.onBreak){
                     completedSessions++;
                 }
