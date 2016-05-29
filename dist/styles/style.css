@@ -1,0 +1,14 @@
+
+body {
+   font-family: 'Open Sans';
+   color: black;              
+   min-height: 100%;          
+}
+
+.time-field{
+   font-size: 72px;
+}
+
+.vcenter {
+    margin-top: 10%;
+}

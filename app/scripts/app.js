@@ -1,16 +1,19 @@
+//Start of the program
+// Load of the router
 (function(){
     function config($stateProvider, $locationProvider){
         $locationProvider
             .html5Mode({
+                // Used to disable hashbang(#!) in url
                 enabled: true,
-                requireBase: false
+                requireBase: false //Required to make ui-router work
             });
         
         $stateProvider
-            .state('landing', {
+            .state('home', {
                 url: '/',
-                controller: 'LandingCtrl as landing',
-                templateUrl: '/templates/landing.html'
+                controller: 'HomeCtrl as home',
+                templateUrl: '/templates/home.html'
             });
     };
     
