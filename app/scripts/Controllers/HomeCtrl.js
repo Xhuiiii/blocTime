@@ -81,7 +81,7 @@
         this.time = WORK_TIME;
         //Set button name
         this.buttonName = "Start";
-        this.taskList = Tasks.all;
+        this.taskList = Tasks.all();
         
         /**************Public functions *****************/
         
