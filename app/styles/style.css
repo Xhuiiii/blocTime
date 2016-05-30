@@ -12,3 +12,7 @@ body {
 .vcenter {
     margin-top: 10%;
 }
+
+.tasklist{
+    background-color: lightgray;
+}

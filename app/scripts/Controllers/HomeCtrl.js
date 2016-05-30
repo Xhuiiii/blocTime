@@ -1,5 +1,5 @@
 (function(){
-    function HomeCtrl($interval){
+    function HomeCtrl($interval, Tasks){
         //Initialize variables
         
         //Constants
@@ -81,6 +81,7 @@
         this.time = WORK_TIME;
         //Set button name
         this.buttonName = "Start";
+        this.taskList = Tasks.all;
         
         /**************Public functions *****************/
         
@@ -98,8 +99,22 @@
                 setTimer();
             }
         };
+        
+        /**
+        * @function addTask
+        * @desc adds task to firebase
+        */
+        this.addTask = function(){
+            var inputBox = document.getElementById('taskInput');
+            
+            if(inputBox){
+                Tasks.add(inputBox.value);
+                inputBox.value = "";
+                inputBox.focus();
+            }
+        };
     };
     angular
         .module('blocTime')
-        .controller('HomeCtrl', ['$interval', HomeCtrl]);
+        .controller('HomeCtrl', ['$interval', 'Tasks', HomeCtrl]);
 })();

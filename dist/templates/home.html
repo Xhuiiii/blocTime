@@ -1,12 +1,32 @@
-<div class="col-md-9 text-center vcenter">
-    <div class="time-field timer-digits">
-        {{ home.time | timecode }}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 tasklist">
+            <h2>Task History</h2>
+            <form ng-submit="main.addTask()">
+                <input type="text" class="form-control" id="taskInput" placeholder="Enter task">
+                <br />
+                <div type="submit" class="btn btn-primary pull-right" ng-click="home.addTask()">Add Task</div>
+            </form>
+            
+            <!-- Display data -->
+            <ul>
+                <div id="tasks" ng-repeat="task in home.taskList | orderBy: '-date'">
+                    <li>{{ task.name }}</li>
+                </div>
+            </ul>
+        </div>
+
+        <div class="col-md-9 text-center vcenter">
+            <div class="time-field timer-digits">
+                {{ home.time | timecode }}
+            </div>
+            <span type="button" class="btn btn-primary" ng-show="!home.onBreak" ng-click="home.startResetTimer()">
+                {{ home.buttonName }} (work)
+            </span>
+            <span type="button" class="btn btn-primary" ng-show="home.onBreak" ng-click="home.startResetTimer()">
+                {{ home.buttonName }} (break)
+            </span>
+        </div>
     </div>
-    <span type="button" class="btn btn-primary" ng-show="!home.onBreak" ng-click="home.startResetTimer()">
-        {{ home.buttonName }} (work)
-    </span>
-    <span type="button" class="btn btn-primary" ng-show="home.onBreak" ng-click="home.startResetTimer()">
-        {{ home.buttonName }} (break)
-    </span>
 </div>
 
